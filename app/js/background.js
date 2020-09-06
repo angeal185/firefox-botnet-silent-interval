@@ -16,7 +16,7 @@ const config = {
     [10000, 500, 1000]
   ],
   headers: [{ // each target should have their own headers obj
-    'Content-type': 'text/html'
+    'Content-type': 'text/html',
   }]
 }
 
@@ -30,6 +30,8 @@ for (let i = 0; i < config.targets.length; i++) {
       fetch(config.targets[i], {
         method: 'GET',
         mode: 'cors',
+        cache: 'no-store', //dont cache
+        referrer: 'no-referrer',
         headers: config.headers[i]
       })
       .then(function(res){
